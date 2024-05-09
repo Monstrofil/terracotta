@@ -120,7 +120,8 @@ class GeoTiffRasterStore(RasterStore):
         tile_bounds: Optional[Sequence[float]] = None,
         tile_size: Optional[Sequence[int]] = None,
         preserve_values: bool = False,
-        asynchronous: bool = False
+        asynchronous: bool = False,
+        band_index: int = 1
     ) -> Any:
         future: Future[np.ma.MaskedArray]
         result: np.ma.MaskedArray
@@ -139,6 +140,7 @@ class GeoTiffRasterStore(RasterStore):
             resampling_method=settings.RESAMPLING_METHOD,
             target_crs=self._TARGET_CRS,
             rio_env_options=self._RIO_ENV_OPTIONS,
+            band_index=band_index
         )
 
         cache_key = hash(ensure_hashable(kwargs))

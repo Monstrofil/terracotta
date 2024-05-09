@@ -142,6 +142,7 @@ class RasterStore(ABC):
         tile_size: Sequence[int] = (256, 256),
         preserve_values: bool = False,
         asynchronous: bool = False,
+        band_index: int = 1
     ) -> Any:
         """Load a raster tile with given path and bounds."""
         pass

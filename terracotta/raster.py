@@ -301,6 +301,7 @@ def get_raster_tile(
     preserve_values: bool = False,
     target_crs: str = "epsg:3857",
     rio_env_options: Optional[Dict[str, Any]] = None,
+    band_index: int = 1
 ) -> np.ma.MaskedArray:
     """Load a raster dataset from a file through rasterio.
 
@@ -400,8 +401,9 @@ def get_raster_tile(
         # read data
         with warnings.catch_warnings(), trace("read_from_vrt"):
             warnings.filterwarnings("ignore", message="invalid value encountered.*")
+
             tile_data = vrt.read(
-                1, resampling=resampling_enum, window=out_window, out_shape=tile_size
+                band_index, resampling=resampling_enum, window=out_window, out_shape=tile_size
             )
 
             # assemble alpha mask

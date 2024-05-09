@@ -20,6 +20,7 @@ def get_tile_data(
     tile_size: Tuple[int, int] = (256, 256),
     preserve_values: bool = False,
     asynchronous: bool = False,
+    band_index: int = 1
 ) -> Any:
     """Retrieve raster image from driver for given XYZ tile and keys"""
 
@@ -30,6 +31,7 @@ def get_tile_data(
             tile_size=tile_size,
             preserve_values=preserve_values,
             asynchronous=asynchronous,
+            band_index=band_index
         )
 
     # determine bounds for given tile
@@ -52,6 +54,7 @@ def get_tile_data(
         tile_size=tile_size,
         preserve_values=preserve_values,
         asynchronous=asynchronous,
+        band_index=band_index
     )
 
 

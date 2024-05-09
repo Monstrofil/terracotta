@@ -257,6 +257,7 @@ class TerracottaDriver:
         tile_size: Sequence[int] = (256, 256),
         preserve_values: bool = False,
         asynchronous: bool = False,
+        band_index: int = 1
     ) -> Any:
         """Load a raster tile with given keys and bounds.
 
@@ -288,6 +289,7 @@ class TerracottaDriver:
             tile_size=tile_size,
             preserve_values=preserve_values,
             asynchronous=asynchronous,
+            band_index=band_index
         )
 
     def compute_metadata(
