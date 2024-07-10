@@ -33,6 +33,20 @@ class ColourfulOptionSchema(Schema):
         description="Pixel dimensions of the returned PNG image as JSON list.",
     )
 
+    @pre_load
+    def process_ranges(self, data: Mapping[str, Any], **kwargs: Any) -> Dict[str, Any]:
+        data = dict(data.items())
+        for var in ("tile_size", ):
+            val = data.get(var)
+            if val:
+                try:
+                    data[var] = json.loads(val)
+                except json.decoder.JSONDecodeError as exc:
+                    raise ValidationError(
+                        f"Could not decode value for {var} as JSON"
+                    ) from exc
+        return data
+
 
 @TILE_API.route("/colourful/<int:tile_z>/<int:tile_x>/<int:tile_y>.png", methods=["GET"])
 @TILE_API.route(
