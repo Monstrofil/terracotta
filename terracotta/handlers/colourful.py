@@ -34,6 +34,7 @@ def colourful(
         tile_size_ = settings.DEFAULT_TILE_SIZE
     else:
         tile_size_ = tile_size
+    print(tile_size_, tile_size_)
 
     driver = get_driver(settings.DRIVER_PATH, provider=settings.DRIVER_PROVIDER)
 
