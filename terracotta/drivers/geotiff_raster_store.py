@@ -128,8 +128,6 @@ class GeoTiffRasterStore(RasterStore):
 
         settings = get_settings()
 
-        print('get_raster_tile', tile_size)
-
         if tile_size is None:
             tile_size = settings.DEFAULT_TILE_SIZE
 

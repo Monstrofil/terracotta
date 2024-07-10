@@ -307,7 +307,6 @@ def get_raster_tile(
 
     Heavily inspired by mapbox/rio-tiler
     """
-    print('get_raster_size', tile_size)
     import rasterio
     from rasterio import transform, windows, warp
     from rasterio.vrt import WarpedVRT
