@@ -118,7 +118,6 @@ def _get_colourful_image(
 
     option_schema = ColourfulOptionSchema()
     options = option_schema.load(request.args)
-    print('options', options, dict(options))
 
     some_keys = [key for key in keys.split("/") if key]
 
